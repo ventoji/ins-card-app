@@ -1,6 +1,6 @@
 {
   "name": "ins-cards-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "app cards",
   "main": "index.js",
   "scripts": {
