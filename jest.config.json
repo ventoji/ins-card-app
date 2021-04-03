@@ -2,9 +2,25 @@
     "roots": [
       "<rootDir>/src"
     ],
+    "collectCoverageFrom": [
+      "!src/**/index.js",
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.stories.js",
+      "src/store/*.{js}",
+      "src/utils/*.{js}",
+      "!<rootDir>/stories",
+      "!src/**/*.d.ts",
+      "!<rootDir>/node_modules/",
+      "!src/**/stories/*"
+    ],
+    "collectCoverage": true,
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
         "<rootDir>/src/setupTests.js"
+      ],
+      "testMatch": [
+        "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+        "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
       ],
       "transform": {
         "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest",

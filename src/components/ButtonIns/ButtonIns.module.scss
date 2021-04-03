@@ -1,0 +1,40 @@
+
+$default-font-size: 1.6rem;
+$btn-color-primary: #007bff;
+$btn-color-secundary: #6c757d;
+$btn-color-danger: #f81f10;
+$btn-color-font: #fff;
+
+.ins-button{
+    font-size: $default-font-size;
+
+    &--primary{
+        color: $btn-color-font;
+        background-color: $btn-color-primary;
+        border-color: $btn-color-primary;
+    }
+
+    &--secondary{
+        color: $btn-color-font;
+        background-color: $btn-color-secundary;
+        border-color: $btn-color-secundary;
+    }
+
+    &--danger{
+        color:$btn-color-font;
+        background-color: $btn-color-danger;
+        border-color: $btn-color-danger;
+    }
+
+    &--small{
+        padding: 1.0rem 2rem;
+    }
+
+    &--medium{
+        padding: 1.5rem 2.5rem;
+    }
+
+    &--large{
+        padding: 1.8rem 2.8rem;
+    }
+}

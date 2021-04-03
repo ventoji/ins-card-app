@@ -1,0 +1,27 @@
+.ins-form__input{
+    font-size: 1.6rem;
+    border: none;
+    border-bottom: 0.1rem solid #000;
+    padding: 1rem;
+    transition: all .3s;
+}
+
+.ins-form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(#000, .1);
+    border-bottom: 2px solid  #6c757d;
+}
+
+.ins-form__input::placeholder {
+    color: #6c757d;
+    
+}
+
+.ins-form__input[type="number"]{
+    appearance: textfield;
+}
+
+.ins-form__group{
+    display: flex;
+    flex-direction: column;
+}

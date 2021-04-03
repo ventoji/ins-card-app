@@ -13,7 +13,35 @@ module.exports = {
         },
         {
           test: /(\.(css|scss)$)/,  
-          use: ['style-loader', 'css-loader', 'sass-loader']
+          use: [
+            'style-loader', 
+            'css-loader', 
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.mdx?$/,
+          use: ['babel-loader', '@mdx-js/loader']
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+                outputPath: 'images',
+              }
+            },
+          ],
+        },
+        {
+          test: /\.(woff2|woff|ttf|svg|eot)$/,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
         }
       ]
     },
@@ -26,7 +54,7 @@ module.exports = {
       filename: 'bundle.js',
     },
     devServer: {
-      contentBase: path.join(__dirname,'public'),
+      contentBase: path.join(__dirname,'../public'),
       compress: true,
       port: 9000,
     }
