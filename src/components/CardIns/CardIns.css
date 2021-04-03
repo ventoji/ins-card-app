@@ -1,0 +1,39 @@
+
+.ins-card{
+    height: 27rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1.1rem 1.1rem rgba(0, 0, 0, 0.41);
+    margin: 2rem;
+    width: 27rem;
+}
+
+.ins-card__image-container{
+    height: 15rem;
+}
+
+.ins-card__image{
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.ins-card__description{
+    font-size: 1.3rem;
+    padding: 2rem;
+    background: #fff;
+}
+
+.ins-card__description p{
+    word-break: break-all;
+}
+
+.ins-card__title{
+    z-index: 10;
+    position: absolute;
+    color: #fff;
+    font-size: 2.3rem;
+    padding: 1rem;
+ /*   top: 12.8rem; */
+
+}
