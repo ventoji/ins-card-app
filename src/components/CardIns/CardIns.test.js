@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import CardIns from "./CardIns";
+import {CardIns} from "./CardIns";
 
 const CARD_DETAILS = {
   title: "Moto GP",

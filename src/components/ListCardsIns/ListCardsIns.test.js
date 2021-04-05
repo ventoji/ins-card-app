@@ -1,6 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import ListCardsIns from "./ListCardsIns";
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+import {ListCardsIns} from "./ListCardsIns";
+import TestRenderer from "react-test-renderer";
 
 const CARD_DETAILS = {
   id: "sdhai123",
@@ -27,13 +30,38 @@ const CARD_DETAILS2 = {
 };
 
 const cardsList = [CARD_DETAILS, CARD_DETAILS1, CARD_DETAILS2];
+const mockStore = configureStore([]);
 
 describe("ListCardIns component", () => {
-  it("should be defined", () => {
-    const { container } = render(<ListCardsIns cardsList={cardsList} />);
-    expect(container).toBeInTheDocument();
-    expect(container.querySelectorAll(".ins-card")).toHaveLength(3);
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      state: {
+        countries: false,
+        cardListStore:cardsList
+      },
+    });
+
   });
+
+  it("should be defined", () => {
+    const { container } = render(
+    <Provider store={store}>
+      <ListCardsIns />
+    </Provider>);
+    expect(container).toBeInTheDocument();
+  //  expect(container.querySelectorAll(".ins-card")).toHaveLength(3);
+  });
+
+  it('should render properly', () => {
+    const tree = TestRenderer.create(
+      <Provider store={store}>
+      <ListCardsIns />
+    </Provider>
+      ).toJSON();
+      expect(tree).toMatchSnapshot();
+  })
 
   it("should render a message when no cards to display", () => {
     const { getByText } = render(<ListCardsIns />);

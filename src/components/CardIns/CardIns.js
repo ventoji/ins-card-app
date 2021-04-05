@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import "./CardIns.css";
 import ButtonIns from "../ButtonIns";
 import { removeItem } from "../../utils/localStorageService";
+import { 
+    removeListCard
+} from '../../store/actions';
 
 const CardPictureStyled = styled.div`
   background-size: cover;
@@ -13,7 +17,15 @@ const CardPictureStyled = styled.div`
 `;
 
 /** Component for a unique card */
-const CardIns = ({ title, description, image, id, handleModal }) => {
+export const CardIns = ({ 
+    title, 
+    description, 
+    image, 
+    id, 
+    handleModal,
+    removeListCard
+  }) => {
+  
   const [showControls, setShowControls] = useState(false);
 
   const handleMouseEnter = () => {
@@ -26,6 +38,9 @@ const CardIns = ({ title, description, image, id, handleModal }) => {
 
   const handleDelete = () => {
     removeItem(id);
+   // closeModal(true);
+   // updateCardList();
+   removeListCard(id);
   };
 
   const handleEdit = () => {
@@ -91,6 +106,16 @@ CardIns.propTypes = {
    *  Handle modal window for edit the content card
    */
   handleModal: PropTypes.func,
+
+  /**
+   *  Action dispatched to remove a card
+   */
+   removeListCard: PropTypes.func
 };
 
-export default CardIns;
+const mapDispatchToProps = (dispatch) => ({
+  //  closeModal: (closeMod) => dispatch(closeModal(closeMod)),
+    removeListCard: (id) => dispatch(removeListCard(id))
+  });
+
+export default connect(undefined,mapDispatchToProps)(CardIns);

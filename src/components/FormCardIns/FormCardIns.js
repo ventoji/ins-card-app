@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import InpusIns from "../InputIns";
 import ButtonIns from "../ButtonIns";
@@ -9,6 +10,11 @@ import {
   getItemById,
   updateItem,
 } from "../../utils/localStorageService";
+import { 
+  closeModal,
+  addListCard,
+  updateListCard  
+} from '../../store/actions';
 
 const INITIAL_STATE = {
   title: "",
@@ -17,28 +23,17 @@ const INITIAL_STATE = {
 };
 
 /** Form Card component  */
-const FormCardIns = ({ id }) => {
+export const FormCardIns = ({ 
+  id,
+  closeModal,
+  addListCard,
+  updateListCard 
+}) => {
   const [cardDetails, setCardDetails] = useState(
     id ? getItemById(id) : INITIAL_STATE
   );
   const [errors, setErrors] = useState({});
   const [sucessfull, setSuccessfull] = useState("");
-
-  // const setInitialState = useCallback( (id) => {
-  //    console.log('initial state', getItemById(id));
-  //   if(id){
-  //     setCardDetails(getItemById(id));
-  //   }else{
-  //     setCardDetails(INITIAL_STATE)
-  //   }
-
-  // },[]);
-
-  // useEffect(() => {
-  //     console.log('ID',typeof(id));
-  //     console.log(id.length);
-  //    // setInitialState(id);
-  // },[id])
 
   const handleSubmitCard = (event) => {
     event.preventDefault();
@@ -52,14 +47,15 @@ const FormCardIns = ({ id }) => {
 
       if (!cardDetails.id) {
         saveItem(cardDetails);
+        addListCard(cardDetails);
         setSuccessfull("card created");
       } else {
         updateItem(cardDetails);
+        updateListCard(cardDetails);
         setSuccessfull("card updated");
+       
       }
-
-      //  !cardDetails.id ? saveItem(cardDetails) : updateItem(cardDetails);
-      //   setSuccessfull('submitted properly');
+      closeModal(true);
       setCardDetails(INITIAL_STATE);
       document.getElementById("ins-form").reset();
     }
@@ -93,6 +89,7 @@ const FormCardIns = ({ id }) => {
       </h1>
       <form id="ins-form" className="ins-form" onSubmit={handleSubmitCard}>
         <InpusIns
+          classnew="ins-form-new-group"
           htmlId="title"
           label="Title"
           placeholder="Title"
@@ -100,9 +97,11 @@ const FormCardIns = ({ id }) => {
           onChange={handleCardDetails}
           error={errors.title}
           value={cardDetails ? cardDetails.title : ""}
+     
         />
 
         <InpusIns
+         classnew="ins-form-new-group"
           htmlId="description"
           label="Description"
           placeholder="Description"
@@ -110,15 +109,18 @@ const FormCardIns = ({ id }) => {
           onChange={handleCardDetails}
           value={cardDetails ? cardDetails.description : ""}
           error={errors.description}
+
         />
 
         <InpusIns
+         classnew="ins-form-new-group"
           htmlId="image"
           label="Image"
           placeholder="Image (Url)"
           name="image"
           onChange={handleCardDetails}
           value={cardDetails ? cardDetails.image : ""}
+
         />
         <ButtonIns label={id.length === undefined ? "Add" : "Save"} />
       </form>
@@ -135,7 +137,16 @@ FormCardIns.propTypes = {
   /**
    *  Id for a card, by default is empty
    */
-  id: PropTypes.string,
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ])
 };
 
-export default FormCardIns;
+const mapDispatchToProps = (dispatch) => ({
+  closeModal: (closeMod) => dispatch(closeModal(closeMod)),
+  updateListCard: (cardDetails) => dispatch(updateListCard(cardDetails)),
+  addListCard: (cardDetails) => dispatch(addListCard(cardDetails))
+});
+
+export default connect(undefined,mapDispatchToProps)(FormCardIns);

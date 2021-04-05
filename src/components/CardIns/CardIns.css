@@ -22,7 +22,7 @@
     font-size: 1.3rem;
     padding: 2rem;
     background: #fff;
-    height: 45%;
+    height: 55%;
 }
 
 .ins-card__description p {
@@ -48,7 +48,7 @@
     z-index: 100;
     background-color: transparent;
     padding: 1rem;
-    top: 5.3rem;
+    top: 6.5rem;
     opacity: 0;
     transition: all 1s ease-in;
 }

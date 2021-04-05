@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import PropTypes from "prop-types";
 import InputIns from "../InputIns";
 import InputSelectIns from "../InputSelectIns";
 import ButtonIns from "../ButtonIns";
@@ -15,6 +15,8 @@ const INITIAL_CONFIG_FILTER = {
 const customStyles = {
   marginTop: "2.4rem",
   marginLeft: "1rem",
+  position: "relative",
+  top: "-2.6rem"
 };
 /**
  *  SortCardOptions panel to filter cards by title or creation date
@@ -86,4 +88,15 @@ const SortCardOptions = ({ onSubmit }) => {
   );
 };
 
+SortCardOptions.defaultProps = {
+  onSubmit: ()=>{}
+}
+
+SortCardOptions.propTypes = {
+  /**
+   *  Submit form to find cards
+   */
+  onSubmit: PropTypes.func
+
+}
 export default SortCardOptions;

@@ -22,7 +22,6 @@
 
 .ins-form__group {
     display: flex;
-    flex-direction: column;
 }
 
 .ins-form__input[type="checkbox"] {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { connect } from 'react-redux';
 import CardIns from "../CardIns";
 import "./ListCardsIns.css";
 import SortCardOptions from "../SortCardOptions";
@@ -12,8 +13,12 @@ const INTIIAL_FILTER = {
   updatedAt: false,
 };
 /** List of cards Component */
-const ListCardsIns = ({ cardsList, handleModal }) => {
+export const ListCardsIns = ({ 
+    handleModal,
+    cardListStore 
+  }) => {
   const [filteredOptions, setFilteredOptions] = useState(INTIIAL_FILTER);
+
 
   const handleEditItem = (id) => {
     //  console.log('PARENT', id);
@@ -21,9 +26,9 @@ const ListCardsIns = ({ cardsList, handleModal }) => {
   };
 
   useEffect(() => {
-    //   console.log('useEffect', filteredOptions);
+     
     setFilteredOptions(filteredOptions);
-  }, [filteredOptions,cardsList]);
+  }, [filteredOptions,cardListStore]);
 
   const handleFilter = (e) => {
     //  console.log('DATA',e)
@@ -33,9 +38,10 @@ const ListCardsIns = ({ cardsList, handleModal }) => {
   return (
     <>
       <SortCardOptions onSubmit={handleFilter} />
+      
       <div className="ins-cards-list">
-        {cardsList.length > 0 ? (
-          sortByCards(cardsList, filteredOptions).map((card) => (
+        {cardListStore && cardListStore.length > 0 ? (
+          sortByCards(cardListStore, filteredOptions).map((card) => (
             <CardIns key={card.id} {...card} handleModal={handleEditItem} />
           ))
         ) : (
@@ -47,7 +53,7 @@ const ListCardsIns = ({ cardsList, handleModal }) => {
 };
 
 ListCardsIns.defaultProps = {
-  cardsList: [],
+  cardsListStore: [],
   handleModal: () => {},
 };
 
@@ -55,7 +61,7 @@ ListCardsIns.propTypes = {
   /**
    *  Arrays of cards.
    */
-  cardsList: PropTypes.array,
+  cardsListStore: PropTypes.array,
 
   /**
    *  Handle modal window in children
@@ -63,4 +69,10 @@ ListCardsIns.propTypes = {
   handleModal: PropTypes.func,
 };
 
-export default ListCardsIns;
+const mapStatetoProps = (state) => ({
+    modalOpen: state.modalOpen,
+    cardListStore: state.cardList
+});
+
+export default connect(mapStatetoProps)(ListCardsIns);
+
