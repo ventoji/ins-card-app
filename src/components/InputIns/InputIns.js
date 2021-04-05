@@ -28,10 +28,23 @@ const InputIns = ({
   error,
   children,
   visible,
+  classnew,
   ...props
 }) => {
+
+//  let customstyle;
+//   if(Object.keys(props) > 0){
+//     [ customstyle ] = props;
+//   }else{
+//     customstyle = {};
+//   }
+//   console.log('C',customstyle)
+//  // const [ customStyle ] = props ? props : {} ;
+//   const styles = {...INLINE_STYLES.containerInput,...customstyle}
+//   console.log('ALL',styles);
+
   return (
-    <div className="ins-form__group" style={INLINE_STYLES.containerInput}>
+    <div className={`ins-form__group ${classnew}`} style={INLINE_STYLES.containerInput}>
       <LabelIns
         htmlFor={htmlId}
         label={label}

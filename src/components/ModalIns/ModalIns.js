@@ -8,11 +8,19 @@ import React, {
 import { createPortal } from "react-dom";
 // import PropTypes from 'prop-types';
 import "./ModalIns.css";
+import {store} from '../../index';
 
 const modalInsElement = document.getElementById("ins-modal-win");
 
 /** ModalIns window */
-const ModalIns = ({ children, fade = false, defaultOpened = false }, ref) => {
+const ModalIns = (
+  { 
+    children, 
+    fade = false, 
+    defaultOpened = false 
+  }, 
+  ref
+  ) => {
   const [isOpen, setIsOpen] = useState(defaultOpened);
   const close = useCallback(() => setIsOpen(false), []);
 
@@ -33,11 +41,18 @@ const ModalIns = ({ children, fade = false, defaultOpened = false }, ref) => {
   );
 
   useEffect(() => {
+
+   store.subscribe(() => {
+    setTimeout(() => {
+      close();
+    },2000);
+ 
+    })
     if (isOpen) document.addEventListener("keydown", handleEscape, false);
     return () => {
       document.removeEventListener("keydown", handleEscape, false);
     };
-  }, [handleEscape, isOpen]);
+  }, [handleEscape, isOpen,close]);
 
   return createPortal(
     isOpen ? (

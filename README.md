@@ -13,6 +13,8 @@ Just click (+) button placed in the rigth side on the screen, add title, descrip
 [Storybook documentation](https://ventoji.github.io/ins-card-app/?path=/story/example-introduction--page)
 
 
+[Demo in netlify](https://vibrant-murdock-6e23be.netlify.app/)
+
 ## Development server
 
 ### Detailed scripts
@@ -38,7 +40,7 @@ Just click (+) button placed in the rigth side on the screen, add title, descrip
 
 
 ### Commit changes
-Add your files and commit your changes following convention of commit. Before pushing any changes make sure you update all the packages running `npm run ncu`. To include new changes in the master branch all tests and linters have to pass. All tests and checking linters are execute automatically running the configured jobs (see .github folder) every time you push some code. Additionally to that travis.ci performs the sames tasks.  
+Add your files and commit your changes following convention of commit. Before pushing any changes make sure you update all the packages running `npm run ncu`. To include new changes in the master branch all tests and linters have to pass. All tests and checking linters are execute automatically running the configured jobs (see .github folder) every time you push some code.
 
 ### Release version
 After changes `run npm release` to automatically increase the control of version according to the changes applied (major, minor or patch). You can use `npm version OPTION` as well to generate the new version.

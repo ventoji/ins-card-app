@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListCardIns component should render properly 1`] = `
+Array [
+  <div
+    className="ins-sort-card-options"
+  >
+    <form
+      className="ins-form-sort"
+      id="ins-form-sort"
+      onSubmit={[Function]}
+    >
+      <div
+        className="ins-form__group undefined"
+        style={
+          Object {
+            "marginBottom": "1.5rem",
+          }
+        }
+      >
+        <label
+          className="ins-form__label"
+          htmlFor="titleUser"
+          style={
+            Object {
+              "visibility": "hidden",
+            }
+          }
+        >
+          Filter by title
+           
+        </label>
+        <input
+          className="ins-form__input"
+          id="titleUser"
+          name="titleUser"
+          onChange={[Function]}
+          placeholder="Filter by title card here"
+          style={Object {}}
+          type="text"
+        />
+      </div>
+      <div
+        className="ins-form__group undefined"
+        style={
+          Object {
+            "marginBottom": "1.5rem",
+          }
+        }
+      >
+        <label
+          className="ins-form__label"
+          htmlFor="title"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
+        >
+          Sort by title
+           
+        </label>
+        <input
+          className="ins-form__input"
+          id="title"
+          name="title"
+          onChange={[Function]}
+          placeholder="Title"
+          style={Object {}}
+          type="checkbox"
+        />
+      </div>
+      <div
+        className="ins-form__group undefined"
+        style={
+          Object {
+            "marginBottom": "1.5rem",
+          }
+        }
+      >
+        <label
+          className="ins-form__label"
+          htmlFor="createdAt"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
+        >
+          Filter by date
+           
+        </label>
+        <input
+          className="ins-form__input"
+          id="createdAt"
+          name="createdAt"
+          onChange={[Function]}
+          placeholder="Title"
+          style={Object {}}
+          type="checkbox"
+        />
+      </div>
+      <div
+        className="ins-form__group"
+      >
+        <label
+          className="ins-form__label"
+          htmlFor="sortBy"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
+        >
+          sort by
+           
+        </label>
+        <select
+          className="ins-select"
+          id="sortBy"
+          name="sortBy"
+          onChange={[Function]}
+          value="asc"
+        >
+          <option
+            disabled={true}
+            value={true}
+          >
+             
+            -- select an option --
+             
+          </option>
+          <option
+            value="asc"
+          >
+            ascendent
+          </option>
+          <option
+            value="desc"
+          >
+            descendent
+          </option>
+        </select>
+      </div>
+      <div
+        className="ins-form__group"
+      >
+        <button
+          className="ins-button ins-button--small ins-button--primary"
+          onClick={[Function]}
+          style={
+            Object {
+              "marginLeft": "1rem",
+              "marginTop": "2.4rem",
+              "position": "relative",
+              "top": "-2.6rem",
+            }
+          }
+          type="submit"
+        >
+          find
+        </button>
+      </div>
+    </form>
+  </div>,
+  <div
+    className="ins-cards-list"
+  >
+    <span>
+      Not cards to display
+    </span>
+  </div>,
+]
+`;

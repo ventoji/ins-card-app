@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import FormCardIns from "./FormCardIns";
+import {FormCardIns} from "./FormCardIns";
 
 describe("FormCardIns", () => {
   it("should be defined", () => {
