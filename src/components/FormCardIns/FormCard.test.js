@@ -1,10 +1,30 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import {FormCardIns} from "./FormCardIns";
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+
+const mockStore = configureStore([]);
 
 describe("FormCardIns", () => {
+
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      state: {
+        countries: false,
+        cardListStore:[]
+      },
+    });
+
+  });
+
   it("should be defined", () => {
-    const { container } = render(<FormCardIns />);
+    const { container } = render(
+      <Provider store={store}>
+      <FormCardIns />
+      </Provider>);
 
     expect(container).toBeInTheDocument();
     expect(container.querySelectorAll("input")).toHaveLength(3);
