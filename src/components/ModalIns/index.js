@@ -1,1 +1,1 @@
-export { default } from './ModalIns';
+export { default } from "./ModalIns";

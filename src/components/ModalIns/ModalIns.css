@@ -5,7 +5,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(206, 196, 196,0.8); /* #b7adad*/
+    background-color: rgba(206, 196, 196, 0.8); /* #b7adad*/
     width: 100%;
     height: 100%;
     display: flex;
@@ -15,23 +15,23 @@
     z-index: 999999;
     box-sizing: border-box;
     box-shadow: 0 1.1rem 1.1rem rgba(0, 0, 0, 0.41);
-  }
-  
-  .ins-modal.ins-modal-fade {
+}
+
+.ins-modal.ins-modal-fade {
     animation: fade-in 1s 1 linear;
     animation-fill-mode: forwards;
     opacity: 0;
-  }
-  
-  .ins-modal > .ins-modal-overlay {
+}
+
+.ins-modal > .ins-modal-overlay {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-  }
-  
-  .ins-modal > .ins-modal-close {
+}
+
+.ins-modal > .ins-modal-close {
     position: absolute;
     right: 15px;
     top: 10px;
@@ -39,36 +39,77 @@
     cursor: pointer;
     font-size: 1.7rem;
     padding: 7px;
-    background: #B11107;
+    background: #b11107;
     border-radius: 50%;
     width: 42px;
     height: 42px;
     z-index: 999999;
     text-align: center;
-  }
-  
-  .ins-modal > .ins-modal-close:hover {
+}
+
+.ins-modal > .ins-modal-close:hover {
     background: rgba(255, 255, 255, 0.1);
-  }
-  
-  .ins-modal > .ins-modal-body {
+}
+
+.ins-modal > .ins-modal-body {
     z-index: 2;
     background-color: #fff;
     border-radius: 3px;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 1.5rem 2.0rem;
+    padding: 1.5rem 2rem;
     width: 45vw;
     height: 38vw;
-  }
-  
-  
-  @keyframes fade-in {
+}
+
+@keyframes fade-in {
     0% {
-      animation-timing-function: cubic-bezier(0.2242, 0.7499, 0.3142, 0.8148);
-      opacity: 0;
+        animation-timing-function: cubic-bezier(0.2242, 0.7499, 0.3142, 0.8148);
+        opacity: 0;
     }
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
+
+@media only screen and (max-width: 900px) {
+    .ins-modal > .ins-modal-body {
+        width: 45vw;
+        height: 48vw;
+    }
+}
+
+@media only screen and (max-width: 802px) {
+    .ins-modal > .ins-modal-body {
+        width: 65vw;
+        height: 58vw;
+    }
+}
+
+@media only screen and (max-width: 604px) {
+    .ins-modal > .ins-modal-body {
+        width: 65vw;
+        height: 68vw;
+    }
+}
+
+@media only screen and (max-width: 504px) {
+    .ins-modal > .ins-modal-body {
+        width: 80vw;
+        height: 90vw;
+    }
+}
+
+@media only screen and (max-width: 384px) {
+    .ins-modal > .ins-modal-body {
+        width: 80vw;
+        height: 107vw;
+    }
+}
+
+@media only screen and (max-width: 304px) {
+    .ins-modal > .ins-modal-body {
+        width: 80vw;
+        height: 150vw;
+    }
+}

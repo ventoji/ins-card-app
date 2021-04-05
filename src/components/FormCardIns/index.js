@@ -1,1 +1,1 @@
-export { default } from './FormCardIns';
+export { default } from "./FormCardIns";
