@@ -1,1 +1,1 @@
-export { default } from './LabelIns';
+export { default } from "./LabelIns";

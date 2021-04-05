@@ -19,49 +19,50 @@ body {
     font-size: 1.6rem;
 }
 
-.ins-heading-primary{
+.ins-heading-primary {
     text-transform: uppercase;
     font-size: 3rem;
     font-weight: 400;
     letter-spacing: 0.5rem;
     text-align: center;
+    margin-bottom: 7rem;
 }
 
 /* home page */
-.ins-btn--add-card{
+.ins-btn--add-card {
     position: fixed;
-    border:none;
+    border: none;
     border-radius: 50%;
     width: 42px;
     height: 42px;
-    background: #B11107;
+    background: #b11107;
     color: #fff;
     font-size: 3rem;
     right: 100px;
     bottom: 100px;
+    z-index: 999999;
 }
 
-.ins-main-content{
-    border: 1px solid black;
+.ins-main-content {
+    /*border: 1px solid black;*/
     height: 70vw;
 }
 
 /* stories styles */
-.ins-row-stories{
+.ins-row-stories {
     width: 40%;
     padding: 6rem;
 }
 
-.ins-cards-list,.ins-row-stories-list-cards{
+.ins-row-stories-list-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     border: 1px solid black;
-    background-color: rgba(206, 196, 196,0.8);
+    background-color: rgba(206, 196, 196, 0.8);
 }
 
-.ins-cards-list{
-    height: 89.8vh;
-    
+.ins-panel-stories {
+    width: 60%;
+    padding: 2rem;
 }
-

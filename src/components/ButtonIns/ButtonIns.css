@@ -1,41 +1,39 @@
-
-
-.ins-button{
+.ins-button {
     font-size: 1.1rem;
     margin: 0 auto;
 }
 
-.ins-button[disabled]{
+.ins-button[disabled] {
     opacity: 0.6;
 }
 
-.ins-button--primary{
-    color:#fff;
-    background-color:  #0054A8;
-    border-color:  #0054A8;
+.ins-button--primary {
+    color: #fff;
+    background-color: #0054a8;
+    border-color: #0054a8;
 }
 
-.ins-button--secondary{
-    color:#fff;
-    background-color:  #6c757d;
-    border-color:  #6c757d;
+.ins-button--secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
 }
 
-.ins-button--danger{
-    color:#fff;
-    background-color:  #B11107;
-    border-color:  #B11107;
+.ins-button--danger {
+    color: #fff;
+    background-color: #b11107;
+    border-color: #b11107;
 }
 
-.ins-button--small{
+.ins-button--small {
     padding: 0.8rem 3rem;
     margin-top: 1.6rem;
 }
 
-.ins-button--medium{
-    padding: 1.0rem 2.5rem;
+.ins-button--medium {
+    padding: 1rem 2.5rem;
 }
 
-.ins-button--large{
-    padding: 1.3rem 3.0rem;
+.ins-button--large {
+    padding: 1.3rem 3rem;
 }

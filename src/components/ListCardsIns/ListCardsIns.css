@@ -1,0 +1,11 @@
+.ins-cards-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /*border: 1px solid black;*/
+    background-color: rgba(206, 196, 196, 0.8);
+    height: 89.8vh;
+    border: none;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
