@@ -1,10 +1,20 @@
 import React from "react";
-
+import { Provider } from 'react-redux';
 import ListCardsIns from "./ListCardsIns";
+import configureStore from '../../store/configureStore';
+const store = configureStore();
 
 export default {
   title: "Components/ListCardsIns",
   component: ListCardsIns,
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
+    //   withReduxDecorator
+  ],
 };
 
 const CARD_DETAILS = {

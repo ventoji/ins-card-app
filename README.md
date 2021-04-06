@@ -8,7 +8,9 @@ Every component in the application is detailed in the storybook documentation.
 
 
 ## How to use it
-Just click (+) button placed in the rigth side on the screen, add title, description and url for card image, in just click add. All cards ara stored in `localStorage`. If you want to edit or remove a card just pass the mouse over the card and options will be displayed. 
+Just click (+) button placed in the right side on the screen, add title, description and url for card image, in just click it. 
+All cards ara stored in `localStorage`. If you want to edit or remove a card just pass the mouse over the card and options will be displayed.
+The state of the application is handle by a simple store created using `redux`. When creating or editing a card there is a delay for closing the modal window. 
 
 [Storybook documentation](https://ventoji.github.io/ins-card-app/?path=/story/example-introduction--page)
 
@@ -47,11 +49,23 @@ After changes `run npm release` to automatically increase the control of version
 
 ## Pending tasks
 
-- Review all egde cases.
-- Update UI when a card is created, deleted or edited. You have to refresh page to see changes
 - Review validation for description and url.
 - Add stories for modal window.
 - Isolate some components (Special Buttons, error messages, successful messages).
 - Design test cases for modal window and complete some test cases.
 - Check responsive design.
-- Deploy in a host service.
+- Confirmation message when deleting a card.
+
+## List of components
+
+* `ButtonIns`
+* `CardIns`
+* `FormCardIns`
+* `InputIns`
+* `InputSelectIns`
+* `LabelIns`
+* `ListCardIns`
+* `SortCardOptions`
+* `ModalIns`
+* `App`: The main component
+* `index.js`: entry point for the appliaction

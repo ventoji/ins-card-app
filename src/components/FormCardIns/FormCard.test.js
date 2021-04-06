@@ -40,14 +40,14 @@ describe("FormCardIns", () => {
     expect(element.nodeName).toBe("H1");
     element = getByText("Title");
     expect(element.nodeName).toBe("LABEL");
-    element = getByPlaceholderText("Title");
+    element = getByPlaceholderText("Title*");
     expect(element.nodeName).toBe("INPUT");
   });
 
   it("should update state when a input changes", () => {
     const { getByPlaceholderText } = render(<FormCardIns />);
 
-    let element = getByPlaceholderText("Title");
+    let element = getByPlaceholderText("Title*");
     fireEvent.change(element, {
       target: {
         value: "Moto GP",
@@ -58,7 +58,7 @@ describe("FormCardIns", () => {
     // console.log('VALUE',container.querySelector('input[name="Title"]').value);
     // expect(container.querySelector('input[name="Title"]').value).toBe('Moto GP');
 
-    element = getByPlaceholderText("Description");
+    element = getByPlaceholderText("Description*");
 
     fireEvent.change(element, {
       target: {
@@ -82,14 +82,14 @@ describe("FormCardIns", () => {
   it("should display error messages for invalid input fields when submit", () => {
     const { getByText, getByPlaceholderText } = render(<FormCardIns />);
 
-    let element = getByPlaceholderText("Title");
+    let element = getByPlaceholderText("Title*");
     fireEvent.change(element, {
       target: {
         value: "",
       },
     });
 
-    element = getByPlaceholderText("Description");
+    element = getByPlaceholderText("Description*");
     fireEvent.change(element, {
       target: {
         value: "",
@@ -116,14 +116,14 @@ describe("FormCardIns", () => {
   it("should submit a new card when button is clicked", () => {
     const { getByPlaceholderText } = render(<FormCardIns />);
 
-    let element = getByPlaceholderText("Title");
+    let element = getByPlaceholderText("Title*");
     fireEvent.change(element, {
       target: {
         value: "Moto GP",
       },
     });
 
-    element = getByPlaceholderText("Description");
+    element = getByPlaceholderText("Description*");
 
     fireEvent.change(element, {
       target: {
