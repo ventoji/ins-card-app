@@ -32,16 +32,6 @@ const InputIns = ({
   ...props
 }) => {
 
-//  let customstyle;
-//   if(Object.keys(props) > 0){
-//     [ customstyle ] = props;
-//   }else{
-//     customstyle = {};
-//   }
-//   console.log('C',customstyle)
-//  // const [ customStyle ] = props ? props : {} ;
-//   const styles = {...INLINE_STYLES.containerInput,...customstyle}
-//   console.log('ALL',styles);
 
   return (
     <div className={`ins-form__group ${classnew}`} style={INLINE_STYLES.containerInput}>
@@ -105,6 +95,11 @@ InputIns.propTypes = {
 
   /** Hide or show label text on screen */
   visible: PropTypes.bool,
+
+  /**
+   *  Add custom css class selectors.
+   */
+  className: PropTypes.string
 };
 
 InputIns.defaultProps = {

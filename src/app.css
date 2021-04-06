@@ -48,6 +48,13 @@ body {
     height: 70vw;
 }
 
+@media only screen and (max-width: 628px) {
+    .ins-btn--add-card{
+        right: 20px;
+        bottom: 50px;
+    }
+}
+
 /* stories styles */
 .ins-row-stories {
     width: 40%;

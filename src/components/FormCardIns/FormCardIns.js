@@ -22,6 +22,8 @@ const INITIAL_STATE = {
   image: "",
 };
 
+const MAX_DESCRIPTION_CARACTHERS = 133;
+
 /** Form Card component  */
 export const FormCardIns = ({ 
   id,
@@ -37,11 +39,12 @@ export const FormCardIns = ({
 
   const handleSubmitCard = (event) => {
     event.preventDefault();
+
     const errors = validateCardDetails(cardDetails);
     setErrors(errors);
     const isValidForm = Object.getOwnPropertyNames(errors).length === 0;
 
-    //  console.log(cardDetails.title, cardDetails.description,cardDetails.image);
+
     if (isValidForm) {
       console.log("submitted data", cardDetails);
 
@@ -64,6 +67,7 @@ export const FormCardIns = ({
     const value = event.target.value;
     const field = event.target.name;
 
+ 
     if (sucessfull) {
       setSuccessfull("");
     }
@@ -92,7 +96,7 @@ export const FormCardIns = ({
           classnew="ins-form-new-group"
           htmlId="title"
           label="Title"
-          placeholder="Title"
+          placeholder="Title*"
           name="title"
           onChange={handleCardDetails}
           error={errors.title}
@@ -104,7 +108,7 @@ export const FormCardIns = ({
          classnew="ins-form-new-group"
           htmlId="description"
           label="Description"
-          placeholder="Description"
+          placeholder="Description*"
           name="description"
           onChange={handleCardDetails}
           value={cardDetails ? cardDetails.description : ""}

@@ -1,10 +1,21 @@
 import React from "react";
-import CardIns from "./CardIns";
+import { Provider } from 'react-redux';
+import {CardIns} from "./CardIns";
 import { text } from "@storybook/addon-knobs";
+import configureStore from '../../store/configureStore';
+const store = configureStore();
 
 export default {
   title: "Components/CarIns",
   component: CardIns,
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
+    //   withReduxDecorator
+  ],
 };
 
 const Template = (args) => (

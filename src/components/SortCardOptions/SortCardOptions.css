@@ -8,4 +8,8 @@
     .ins-sort-card-options {
         width: 70vw;
     }
+
+    .ins-form-sort {
+        justify-content: center;
+    }
 }

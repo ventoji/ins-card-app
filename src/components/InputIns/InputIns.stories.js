@@ -23,6 +23,7 @@ TypeText.args = {
   name: text("label", "titleCard"),
   onChange: action("cick"),
   type: "text",
+  classnew:"ins-form-new-group"
 };
 
 export const TypeTextInvalid = Template.bind({});
@@ -34,6 +35,7 @@ TypeTextInvalid.args = {
   onChange: action("cick"),
   type: "text",
   error: "invalid text input",
+  classnew:"ins-form-new-group"
 };
 
 export const TypeNumber = Template.bind({});
@@ -44,6 +46,7 @@ TypeNumber.args = {
   onChange: action("cick"),
   type: "number",
   placeholder: "Introudce your numeric value",
+  classnew:"ins-form-new-group"
 };
 
 export const TypeCheckbox = Template.bind({});
