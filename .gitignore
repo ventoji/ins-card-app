@@ -133,8 +133,4 @@ yarn-error.log*
 .netlify
 
 .jest-test-results.json
-src/stories
-/src/stories/
-src/stories/
-src/utils/custom-hooks
-/src/utils/custom-hooks/
+
