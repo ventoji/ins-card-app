@@ -6,3 +6,9 @@
 .ins-form-new-group{
     flex-direction: column;
 }
+
+.ins-form__advise-msg{
+    color: #000;
+    opacity: 0.3;
+    font-size: 1.4rem;
+}

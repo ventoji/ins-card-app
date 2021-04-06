@@ -43,7 +43,7 @@ ButtonIns.propTypes = {
   mode: PropTypes.oneOf(["primary", "secondary", "danger"]),
 
   /**
-   * Optiona click handeler
+   * Optiona click handler
    */
   onClick: PropTypes.func,
 

@@ -26,15 +26,15 @@ const CARD_DETAILS = {
 };
 
 const cardsList = [
-  CARD_DETAILS,
-  CARD_DETAILS,
-  CARD_DETAILS,
-  CARD_DETAILS,
-  CARD_DETAILS,
-  CARD_DETAILS,
-  CARD_DETAILS,
-  CARD_DETAILS,
-  CARD_DETAILS,
+  {...CARD_DETAILS, id: '123'},
+  {...CARD_DETAILS, id: '423'},
+  {...CARD_DETAILS, id: '723'},
+  {...CARD_DETAILS, id: '723'},
+  {...CARD_DETAILS, id: '173'},
+  {...CARD_DETAILS, id: '183'},
+  {...CARD_DETAILS, id: '193'},
+  {...CARD_DETAILS, id: '129'},
+  {...CARD_DETAILS, id: '122'},
 ];
 
 const Template = (args) => (
@@ -44,5 +44,5 @@ const Template = (args) => (
 );
 export const CardsList = Template.bind({});
 CardsList.args = {
-  cardsList: cardsList,
+  cardsListStore: [...cardsList],
 };

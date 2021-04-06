@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import loggerMiddleware from './logger';
-import modalReducer from './modalReducer';
+// import modalReducer from './modalReducer';
 import cardReducer from './cardReducer';
 
+//    modalOpen: modalReducer,
 const rootReducer = combineReducers({
-    modalOpen: modalReducer,
     cardList: cardReducer
 });
 

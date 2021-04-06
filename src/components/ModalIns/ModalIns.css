@@ -56,10 +56,11 @@
     background-color: #fff;
     border-radius: 3px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
     padding: 1.5rem 2rem;
     width: 45vw;
-    height: 38vw;
+    height: 44vw;
 }
 
 @keyframes fade-in {
@@ -72,44 +73,44 @@
     }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1078px) {
     .ins-modal > .ins-modal-body {
-        width: 45vw;
-        height: 48vw;
+        width: 80%;
+        height: 80%;
     }
 }
 
-@media only screen and (max-width: 802px) {
-    .ins-modal > .ins-modal-body {
-        width: 65vw;
-        height: 58vw;
-    }
-}
-
-@media only screen and (max-width: 604px) {
+/* @media only screen and (max-width: 802px) {
     .ins-modal > .ins-modal-body {
         width: 65vw;
-        height: 68vw;
+        height: 100%;
     }
-}
+} */
 
-@media only screen and (max-width: 504px) {
+/* @media only screen and (max-width: 604px) {
+    .ins-modal > .ins-modal-body {
+        width: 65vw;
+        height: 100%;
+    }
+} */
+
+/* @media only screen and (max-width: 504px) {
     .ins-modal > .ins-modal-body {
         width: 80vw;
-        height: 90vw;
+        height: 100%;
     }
 }
-
-@media only screen and (max-width: 384px) {
+ */
+/* @media only screen and (max-width: 384px) {
     .ins-modal > .ins-modal-body {
         width: 80vw;
         height: 107vw;
     }
-}
+} */
 
-@media only screen and (max-width: 304px) {
+@media only screen and (max-width: 1004px) {
     .ins-modal > .ins-modal-body {
-        width: 80vw;
-        height: 150vw;
+        width: 80%;
+        height: 65%;
     }
 }

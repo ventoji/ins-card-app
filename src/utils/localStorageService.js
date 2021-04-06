@@ -8,6 +8,8 @@ export const generatedId = () => {
   return uuidv1();
 };
 
+
+
 /**
  *
  * @param {card} card details with the updated information
@@ -17,7 +19,7 @@ export const updateItem = (card) => {
   if (!card.image) {
     card.image =
       "http://www.ventoji.es/ventojidev/wp-content/uploads/2019/06/IMG_20180922_170206-1568x1176.jpg";
-    console.log("introduced image url by default");
+    //console.log("introduced image url by default");
   }
 
   let cardsList = getItems();
@@ -59,7 +61,7 @@ export const saveItem = (card) => {
   if (!card.image) {
     card.image =
       "http://www.ventoji.es/ventojidev/wp-content/uploads/2019/06/IMG_20180922_170206-1568x1176.jpg";
-    console.log("introduced image url by default");
+  //  console.log("introduced image url by default");
   }
 
   const cardNew = {
@@ -78,11 +80,12 @@ export const saveItem = (card) => {
   if (typeof Storage !== "undefined") {
     try {
       window.localStorage.setItem("cardsList", JSON.stringify(cardsList));
-      console.log("saved in LocalStoraged");
+   //   console.log("saved in LocalStoraged");
     } catch (error) {
       console.log(error);
     }
   }
+  return cardNew;
 };
 
 /**
@@ -95,7 +98,7 @@ export const getItems = () => {
   if (typeof Storage !== "undefined") {
     try {
       cardsList = JSON.parse(window.localStorage.getItem("cardsList"));
-      console.log("checked data in LocalStoraged");
+   //   console.log("checked data in LocalStoraged");
     } catch (error) {
       console.log(error);
     }
@@ -140,7 +143,7 @@ export const removeItem = (id) => {
     window.localStorage.setItem("cardsList", JSON.stringify(cardsList));
     console.log("Removed from LocalStoraged");
   } else {
-    console.log("not found");
+ //   console.log("not found");
   }
 };
 

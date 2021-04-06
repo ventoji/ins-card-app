@@ -49,12 +49,10 @@ After changes `run npm release` to automatically increase the control of version
 
 ## Pending tasks
 
-- Review validation for description and url.
 - Add stories for modal window.
 - Isolate some components (Special Buttons, error messages, successful messages).
 - Design test cases for modal window and complete some test cases.
 - Check responsive design.
-- Confirmation message when deleting a card.
 
 ## List of components
 

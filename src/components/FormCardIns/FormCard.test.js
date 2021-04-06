@@ -13,11 +13,9 @@ describe("FormCardIns", () => {
   beforeEach(() => {
     store = mockStore({
       state: {
-        countries: false,
         cardListStore:[]
       },
     });
-
   });
 
   it("should be defined", () => {
@@ -32,11 +30,11 @@ describe("FormCardIns", () => {
   });
 
   it("should render properly", () => {
-    const { getByText, getByPlaceholderText } = render(<FormCardIns />);
+    const { getByText, getByPlaceholderText } = render(<FormCardIns id={{}} />);
 
     let element;
 
-    element = getByText("EDIT CARD");
+    element = getByText("NEW CARD");
     expect(element.nodeName).toBe("H1");
     element = getByText("Title");
     expect(element.nodeName).toBe("LABEL");
@@ -80,7 +78,7 @@ describe("FormCardIns", () => {
   });
 
   it("should display error messages for invalid input fields when submit", () => {
-    const { getByText, getByPlaceholderText } = render(<FormCardIns />);
+    const { getByText, getByPlaceholderText } = render(<FormCardIns id={{}}/>);
 
     let element = getByPlaceholderText("Title*");
     fireEvent.change(element, {
@@ -99,7 +97,7 @@ describe("FormCardIns", () => {
     // let element2 = getByPlaceholderText('Image (Url)');
     // expect(element2.value).toBe('www.google.es');
 
-    element = getByText("Save");
+    element = getByText("Add");
     fireEvent.submit(element);
     let element2 = getByPlaceholderText("Image (Url)");
     //   console.log(element2);
@@ -114,7 +112,9 @@ describe("FormCardIns", () => {
   });
 
   it("should submit a new card when button is clicked", () => {
-    const { getByPlaceholderText } = render(<FormCardIns />);
+
+    const mockOnClick = jest.fn();
+    const { getByPlaceholderText, getByText } = render(<FormCardIns addListCard={mockOnClick} id={{}}/>);
 
     let element = getByPlaceholderText("Title*");
     fireEvent.change(element, {
@@ -130,6 +130,11 @@ describe("FormCardIns", () => {
         value: "Nice pics describing many amazing things",
       },
     });
+
+    element = getByText('Add')
+    fireEvent.submit(element);
+    expect(mockOnClick).toHaveBeenCalled();
+    expect(mockOnClick).toHaveBeenCalledTimes(1);
 
     //  element = getByText('Add');
     //  fireEvent.submit(element);
