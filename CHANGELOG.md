@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/ventoji/ins-card-app/compare/v1.3.1...v1.3.2) (2021-04-06)
+
+
+### Bug Fixes
+
+* adding test and validation ([321b432](https://github.com/ventoji/ins-card-app/commit/321b432cb7fc1def2d3b253cb5a5f04a6f39764d))
+
 ### [1.3.1](https://github.com/ventoji/ins-card-app/compare/v1.3.0...v1.3.1) (2021-04-06)
 
 

@@ -1,5 +1,9 @@
 import * as cardActions from './actions';
 import { getItems } from "../utils/localStorageService";
+import { 
+    saveItem,
+    updateItem 
+} from '../utils/localStorageService';
 
 const initialCards = getItems();
 
@@ -14,12 +18,13 @@ const modalReducer = (state=initialCards, action) => {
 
     switch (action.type){
         case cardActions.ADD_CARD:
+            const cardNew =saveItem(action.payload);
             return [
                 ...state,
-                action.payload
+                cardNew
             ]
 
-        case cardActions.UPDATE_CARD:
+        case cardActions.UPDATE_CARD_LIST:
             const {id, ...props} = action.payload;
             return state.map(card => {
                 if(card.id === id){

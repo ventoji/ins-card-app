@@ -1,0 +1,20 @@
+.ins-btn--add-card {
+    position: fixed;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    background: #b11107;
+    color: #fff;
+    font-size: 3rem;
+    right: 100px;
+    bottom: 100px;
+    z-index: 999999;
+}
+
+@media only screen and (max-width: 628px) {
+    .ins-btn--add-card{
+        right: 20px;
+        bottom: 50px;
+    }
+}

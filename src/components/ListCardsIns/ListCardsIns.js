@@ -26,7 +26,6 @@ export const ListCardsIns = ({
   };
 
   useEffect(() => {
-     
     setFilteredOptions(filteredOptions);
   }, [filteredOptions,cardListStore]);
 
@@ -41,9 +40,9 @@ export const ListCardsIns = ({
       
       <div className="ins-cards-list">
         {cardListStore && cardListStore.length > 0 ? (
-          sortByCards(cardListStore, filteredOptions).map((card) => (
-            <CardIns key={card.id} {...card} handleModal={handleEditItem} />
-          ))
+          sortByCards(cardListStore, filteredOptions).map((card) => 
+             <CardIns key={card.id} {...card} handleModal={handleEditItem} />
+          )
         ) : (
           <span>Not cards to display</span>
         )}

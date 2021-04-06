@@ -26,4 +26,16 @@ const Template = (args) => (
   </div>
 );
 
-export const FormCard = Template.bind({});
+export const FormNewCard = Template.bind({});
+
+export const FormEditCard = Template.bind({});
+
+FormEditCard.args = {
+  id:"a02cab80-96d3-11eb-87b9-ada0d5f3bbe9",
+  title: "My card title",
+  description:
+    "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus e",
+  imageUrl:
+    "http://www.ventoji.es/ventojidev/wp-content/uploads/2019/06/IMG_20180922_170206-1568x1176.jpg",
+};
+

@@ -37,14 +37,16 @@ export const CardIns = ({
   };
 
   const handleDelete = () => {
+    const confirmDelete = window.confirm("are you sure you want to delete it?");
+   // console.log(confirmDelete);
+   if(confirmDelete){
     removeItem(id);
-   // closeModal(true);
-   // updateCardList();
-   removeListCard(id);
+    removeListCard(id);
+   }
+   
   };
 
   const handleEdit = () => {
-    console.log(id);
     handleModal(id);
   };
   return (
@@ -84,6 +86,8 @@ CardIns.defaultProps = {
   description: "Some description for the card, very nice",
   image:
     "http://www.ventoji.es/ventojidev/wp-content/uploads/2019/06/IMG_20180922_170206-1568x1176.jpg",
+  removeListCard: () => {},
+  handleModal: () => {}
 };
 
 CardIns.propTypes = {
@@ -114,7 +118,6 @@ CardIns.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  //  closeModal: (closeMod) => dispatch(closeModal(closeMod)),
     removeListCard: (id) => dispatch(removeListCard(id))
   });
 

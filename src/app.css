@@ -1,3 +1,4 @@
+
 *,
 *::after,
 *::before {
@@ -25,34 +26,14 @@ body {
     font-weight: 400;
     letter-spacing: 0.5rem;
     text-align: center;
-    margin-bottom: 7rem;
 }
 
 /* home page */
-.ins-btn--add-card {
-    position: fixed;
-    border: none;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    background: #b11107;
-    color: #fff;
-    font-size: 3rem;
-    right: 100px;
-    bottom: 100px;
-    z-index: 999999;
-}
+
 
 .ins-main-content {
     /*border: 1px solid black;*/
     height: 70vw;
-}
-
-@media only screen and (max-width: 628px) {
-    .ins-btn--add-card{
-        right: 20px;
-        bottom: 50px;
-    }
 }
 
 /* stories styles */
@@ -66,10 +47,18 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     border: 1px solid black;
-    background-color: rgba(206, 196, 196, 0.8);
+   /* background-color: rgba(206, 196, 196, 0.8);*/
+   padding: 2rem;
 }
 
 .ins-panel-stories {
     width: 60%;
     padding: 2rem;
+}
+
+.ins-panel-custom-btn-stories{
+        position: absolute;
+        left: 150px;
+        top: 140px;
+        padding: 0;
 }

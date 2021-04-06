@@ -8,4 +8,5 @@
     border: none;
     overflow-y: scroll;
     scrollbar-width: none;
+    width: 100%;
 }

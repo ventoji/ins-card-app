@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import InpusIns from "../InputIns";
 import ButtonIns from "../ButtonIns";
 import "./FormCardIns.css";
-import { validateCardDetails } from "./validators/validators";
+import { 
+    validateCardDetails,
+    counterCaracthers,
+    MAX_LENGTH 
+  } from "./validators/validators";
 import {
-  saveItem,
   getItemById,
   updateItem,
 } from "../../utils/localStorageService";
 import { 
-  closeModal,
   addListCard,
   updateListCard  
 } from '../../store/actions';
@@ -22,20 +24,27 @@ const INITIAL_STATE = {
   image: "",
 };
 
-const MAX_DESCRIPTION_CARACTHERS = 133;
-
 /** Form Card component  */
 export const FormCardIns = ({ 
   id,
-  closeModal,
   addListCard,
   updateListCard 
 }) => {
   const [cardDetails, setCardDetails] = useState(
-    id ? getItemById(id) : INITIAL_STATE
-  );
+      typeof(id)==='string'? getItemById(id):INITIAL_STATE);
   const [errors, setErrors] = useState({});
   const [sucessfull, setSuccessfull] = useState("");
+  const [descCount, setDescCount ] = useState(MAX_LENGTH)
+
+  // useEffect(() => {
+
+  //   if(typeof(id)==='string'){
+  //     setCardDetails(getItemById(id));
+  //   }
+  //   return () => {
+  //     setCardDetails(INITIAL_STATE);
+  //   }
+  // },[id])
 
   const handleSubmitCard = (event) => {
     event.preventDefault();
@@ -46,10 +55,10 @@ export const FormCardIns = ({
 
 
     if (isValidForm) {
-      console.log("submitted data", cardDetails);
+   //  console.log("submitted data", cardDetails);
 
       if (!cardDetails.id) {
-        saveItem(cardDetails);
+        
         addListCard(cardDetails);
         setSuccessfull("card created");
       } else {
@@ -58,7 +67,6 @@ export const FormCardIns = ({
         setSuccessfull("card updated");
        
       }
-      closeModal(true);
       setCardDetails(INITIAL_STATE);
       document.getElementById("ins-form").reset();
     }
@@ -79,6 +87,11 @@ export const FormCardIns = ({
       });
     }
 
+    if(field === 'description'){
+      const len = counterCaracthers(value);
+      setDescCount(len);
+    }
+
     setCardDetails({
       ...cardDetails,
       [field]: value,
@@ -89,7 +102,7 @@ export const FormCardIns = ({
     <div className="ins-card-form">
       <h1 className="ins-heading-primary">
         {" "}
-        {id.length === undefined ? "NEW CARD" : "EDIT CARD"}{" "}
+        {typeof(id)!=='string'? "NEW CARD" : "EDIT CARD"}{" "}
       </h1>
       <form id="ins-form" className="ins-form" onSubmit={handleSubmitCard}>
         <InpusIns
@@ -115,7 +128,7 @@ export const FormCardIns = ({
           error={errors.description}
 
         />
-
+        <span className="ins-form__advise-msg"> Max: {descCount} </span>
         <InpusIns
          classnew="ins-form-new-group"
           htmlId="image"
@@ -124,9 +137,10 @@ export const FormCardIns = ({
           name="image"
           onChange={handleCardDetails}
           value={cardDetails ? cardDetails.image : ""}
+          error={errors.image}
 
         />
-        <ButtonIns label={id.length === undefined ? "Add" : "Save"} />
+        <ButtonIns label={typeof(id)!=='string' ? "Add" : "Save"} />
       </form>
       {sucessfull && <span style={{ color: "#7ed56f" }}> {sucessfull}</span>}
     </div>
@@ -135,6 +149,8 @@ export const FormCardIns = ({
 
 FormCardIns.defaultProps = {
   id: "",
+  addListCard: () => {},
+  updateListCard: () => {} 
 };
 
 FormCardIns.propTypes = {
@@ -144,11 +160,18 @@ FormCardIns.propTypes = {
   id: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object
-  ])
+  ]),
+  /**
+   * Dispatch an action when creating a new card
+   */
+  addListCard: PropTypes.func,
+  /**
+   * Dispatch a action event when editing a existing card
+   */
+  updateListCard: PropTypes.func 
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  closeModal: (closeMod) => dispatch(closeModal(closeMod)),
   updateListCard: (cardDetails) => dispatch(updateListCard(cardDetails)),
   addListCard: (cardDetails) => dispatch(addListCard(cardDetails))
 });

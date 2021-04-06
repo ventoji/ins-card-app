@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should render with snapshot 1`] = `
+<div
+  className="ins-card"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="ins-card__image-container"
+  >
+    <div
+      className="sc-bdvvaa hTVhwk"
+    >
+      <h5
+        className="ins-card__title"
+      >
+        Moto GP
+      </h5>
+    </div>
+  </div>
+  <div
+    className="ins-card__description"
+  >
+    <div
+      className="ins-card__controls "
+    >
+      <div
+        className="ins-form__group"
+      >
+        <button
+          className="ins-button ins-button--small ins-button--primary"
+          onClick={[Function]}
+          type="button"
+        >
+          edit
+        </button>
+      </div>
+      <div
+        className="ins-form__group"
+      >
+        <button
+          className="ins-button ins-button--small ins-button--danger"
+          onClick={[Function]}
+          type="submit"
+        >
+          delete
+        </button>
+      </div>
+    </div>
+    <p>
+      Some description for the card, very nice
+    </p>
+  </div>
+</div>
+`;
